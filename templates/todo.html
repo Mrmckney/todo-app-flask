@@ -10,9 +10,21 @@
       <div>
         <input style="width: 24rem; height: 2rem;" type="text" name="todo" placeholder="Type Todo Here" required=true> 
         <button style="width: 6rem; height: 2rem; border-radius: 5px; color: white; background-color: black; border-color: white;" type="submit">Add Todo</button>
+        <p style="margin-top: 10px;">Due Date: <input type="text" name="date" id="datepicker" placeholder="mm/dd/yy" required=true></p>
       </div>
     </form>
   </section>
+  <div class="dropdown" style="margin-left: 10px;">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Order By
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="/date">Due Date</a></li>
+      <li><a class="dropdown-item" href="/completed">Completed</a></li>
+      <li><a class="dropdown-item" href="/notcompleted">Not Completed</a></li>
+      <li><a class="dropdown-item" href="/todo">Number</a></li>
+    </ul>
+  </div>
   <section style="display: flex; flex-direction: row; flex-wrap: wrap;">
     {% for todo in todo_list %}
     {% if todo.completed == False %}
@@ -21,7 +33,9 @@
         <h5 class="card-title">Todo #{{ todo.id }}</h5>
         <b>Task:</b>
           <p class="card-text">{{ todo.todo }}</p>
-          <a href="/update/{{ todo.id }}" class="btn btn-secondary">Done</a>
+          <b>Date: {{ todo.date }}</b>
+          <br />
+          <a href="/update/{{ todo.id }}" class="btn btn-secondary">UnDone</a>
           <a href="/remove/{{ todo.id }}" class="btn btn-danger">Remove</a>
       </div>
     </div>
@@ -31,7 +45,9 @@
       <div class="card-body">
         <h5 class="card-title">Todo #{{ todo.id }} ⭐️</h5>
         <b>Task:</b>
-          <p class="card-text">{{ todo.todo }}</p>
+        <p class="card-text">{{ todo.todo }}</p>
+        <b>Date: {{ todo.date }}</b>
+        <br />
           <a href="/update/{{ todo.id }}" class="btn btn-success ">Done</a>
           <a href="/remove/{{ todo.id }}" class="btn btn-danger ">Remove</a>
       </div>
