@@ -4,12 +4,39 @@
 {% endblock %}
 
 {% block body %}
-  <section>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Todo here" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add To List</button>
-    </div>
+  <h1 style="display: flex; justify-content: center;">Todo List</h1>
+  <section style="display: flex; justify-content: center; margin-top: 10px;">
+    <form action="/add" method="POST">
+      <div>
+        <input style="width: 24rem; height: 2rem;" type="text" name="todo" placeholder="Type Todo Here"> 
+        <button style="width: 6rem; height: 2rem; border-radius: 5px; color: white; background-color: black; border-color: white;" type="submit">Add Todo</button>
+      </div>
+    </form>
   </section>
-  <section>
+  <section style="display: flex; flex-direction: row; flex-wrap: wrap;">
+    {% for todo in todo_list %}
+    {% if todo.completed == False %}
+    <div class="card" style="width: 18rem; margin: 35px">
+      <div class="card-body">
+        <h5 class="card-title">Todo #{{ todo.id }}</h5>
+        <b>Task:</b>
+          <p class="card-text">{{ todo.todo }}</p>
+          <a href="/update/{{ todo.id }}" class="btn btn-secondary">Done</a>
+          <a href="/remove/{{ todo.id }}" class="btn btn-danger">Remove</a>
+      </div>
+    </div>
+    {% endif %}
+    {% if todo.completed == True %}
+    <div class="card" style="width: 18rem; margin: 35px">
+      <div class="card-body">
+        <h5 class="card-title">Todo #{{ todo.id }} ⭐️</h5>
+        <b>Task:</b>
+          <p class="card-text">{{ todo.todo }}</p>
+          <a href="/update/{{ todo.id }}" class="btn btn-success ">Done</a>
+          <a href="/remove/{{ todo.id }}" class="btn btn-danger ">Remove</a>
+      </div>
+    </div>        
+    {% endif %}
+    {% endfor %}
   </section>
 {% endblock %}
