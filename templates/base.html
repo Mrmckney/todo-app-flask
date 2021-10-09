@@ -16,10 +16,9 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
+          {% if user_email and user_password %}
           <a class="navbar-brand" href="{{ url_for('todo_page') }}">Todo</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          {% endif %}
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -35,7 +34,8 @@
     </header>
     <main>
     {% block body %}
-
+      <h1 style="text-align: center; margin-top: 100px;">Hello and Welcome to Todo App</h1>
+      <h4 style="text-align: center;">| Please Login or Sign up |</h4>
     {% endblock %}
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>

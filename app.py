@@ -24,9 +24,13 @@ class User(db.Model):
     password = db.Column(db.String(26))
 
 @app.route("/")
+def home_page():
+    return render_template("base.html")
+
+@app.route("/todo")
 def todo_page():
     todo_list = Todo.query.all()
-    return render_template('todo.html', todo_list=todo_list)
+    return render_template("todo.html", todo_list=todo_list)
 
 @app.route("/add", methods=["POST"])
 def add_todo():
@@ -52,11 +56,11 @@ def remove_todo(todo_id):
 
 @app.route("/login")
 def login_page():
-    return render_template('login.html')
+    return render_template("login.html")
 
 @app.route("/signup")
 def sign_up_page():
-    return render_template('signup.html')
+    return render_template("signup.html")
 
 
 if __name__ == "__main__":
