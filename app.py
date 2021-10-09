@@ -95,8 +95,6 @@ def register():
         db.session.commit()
         session["logged_in"] = True 
         return render_template("todo.html") and redirect(url_for("todo_page"))
-    else:
-        return flash("Try Again")
 
 @app.route("/login/", methods = ["GET", "POST"])
 def login():

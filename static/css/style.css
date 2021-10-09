@@ -1,4 +1,8 @@
-.section1 {
-    display: flex;
-    justify-content: center;
+body {
+    height: 100%;
+}
+
+.home-h1 {
+    text-align: center; 
+    margin-top: 100px;
 }

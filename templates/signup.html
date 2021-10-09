@@ -4,16 +4,18 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Sign Up</h1>
-    <form action="/register/" method="POST">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" name="email" class="form-control" style="width: 24rem;" id="exampleInputEmail1" aria-describedby="emailHelp" required=true>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" style="width: 24rem;"id="exampleInputPassword1" required=true>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<h1 style="display: flex; justify-content: center; margin-top: 50px;">Sign Up</h1>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <form action="/register/" method="POST">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" name="email" class="form-control" style="width: 24rem;" id="exampleInputEmail1" aria-describedby="emailHelp" required=true>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" style="width: 24rem;"id="exampleInputPassword1" required=true>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 {% endblock %}
