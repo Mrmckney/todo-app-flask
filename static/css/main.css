@@ -1,0 +1,60 @@
+.home {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.ls-title {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 50px;
+}
+
+.ls-form {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.todo-list {
+    display: flex; 
+    justify-content: center;
+}
+
+.todo-section {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 10px;
+}
+
+.todo-button {
+    width: 6rem; 
+    height: 2rem; 
+    border-radius: 5px; 
+    color: #ffffff; 
+    background-color: #000000; 
+    border-color: #ffffff;
+}
+
+.todo-input {
+    width: 24rem; 
+    height: 2rem;
+}
+
+.todo-date {
+    margin-top: 10px;
+}
+
+.todo-dropdown {
+    margin-left: 10px;
+}
+
+.todo-card-container {
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap;
+}
+
+.todo-card {
+    width: 18rem; 
+    margin: 35px
+}

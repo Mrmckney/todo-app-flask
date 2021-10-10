@@ -4,17 +4,17 @@
 {% endblock %}
 
 {% block body %}
-  <h1 style="display: flex; justify-content: center;">Todo List</h1>
-  <section style="display: flex; justify-content: center; margin-top: 10px;">
+  <h1 class="todo-list">Todo List</h1>
+  <section class="todo-section">
     <form action="/add" method="POST">
       <div>
-        <input style="width: 24rem; height: 2rem;" type="text" name="todo" placeholder="Type Todo Here" required=true> 
-        <button style="width: 6rem; height: 2rem; border-radius: 5px; color: white; background-color: black; border-color: white;" type="submit">Add Todo</button>
-        <p style="margin-top: 10px;">Due Date: <input type="text" name="date" id="datepicker" placeholder="mm/dd/yy" required=true></p>
+        <input class="todo-input" type="text" name="todo" placeholder="Type Todo Here" required=true> 
+        <button class="todo-button" type="submit">Add Todo</button>
+        <p class="todo-date">Due Date: <input type="text" name="date" id="datepicker" placeholder="mm/dd/yy" required=true></p>
       </div>
     </form>
   </section>
-  <div class="dropdown" style="margin-left: 10px;">
+  <div class="todo-dropdown dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Order By
     </button>
@@ -25,10 +25,10 @@
       <li><a class="dropdown-item" href="/todo">Number</a></li>
     </ul>
   </div>
-  <section style="display: flex; flex-direction: row; flex-wrap: wrap;">
+  <section class="todo-card-container">
     {% for todo in todo_list %}
     {% if todo.completed == False %}
-    <div class="card" style="width: 18rem; margin: 35px">
+    <div class="todo-card card">
       <div class="card-body">
         <h5 class="card-title">Todo #{{ todo.id }}</h5>
         <b>Task:</b>
@@ -41,7 +41,7 @@
     </div>
     {% endif %}
     {% if todo.completed == True %}
-    <div class="card" style="width: 18rem; margin: 35px">
+    <div class="todo-card card">
       <div class="card-body">
         <h5 class="card-title">Todo #{{ todo.id }} ⭐️</h5>
         <b>Task:</b>

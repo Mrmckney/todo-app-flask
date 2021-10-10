@@ -4,8 +4,8 @@
 {% endblock %}
 
 {% block body %}
-<h1 style="display: flex; justify-content: center; margin-top: 50px;">Sign Up</h1>
-    <div style="display: flex; justify-content: center; align-items: center;">
+<h1 class="ls-title">Sign Up</h1>
+    <div class="ls-form">
         <form action="/register/" method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -13,7 +13,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" style="width: 24rem;"id="exampleInputPassword1" required=true>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" required=true>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
