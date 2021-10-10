@@ -33,7 +33,7 @@
         <h5 class="card-title">Todo #{{ todo.id }}</h5>
         <b>Task:</b>
           <p class="card-text">{{ todo.todo }}</p>
-          <b>Date: {{ todo.date }}</b>
+          <p><b>Due Date:</b>{{ todo.date }}</p>
           <br />
           <a href="/update/{{ todo.id }}" class="btn btn-secondary">UnDone</a>
           <a href="/remove/{{ todo.id }}" class="btn btn-danger">Remove</a>
@@ -46,7 +46,7 @@
         <h5 class="card-title">Todo #{{ todo.id }} ⭐️</h5>
         <b>Task:</b>
         <p class="card-text">{{ todo.todo }}</p>
-        <b>Date: {{ todo.date }}</b>
+        <p><b>Due Date:</b>{{ todo.date }}</p>
         <br />
           <a href="/update/{{ todo.id }}" class="btn btn-success ">Done</a>
           <a href="/remove/{{ todo.id }}" class="btn btn-danger ">Remove</a>
