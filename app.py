@@ -82,30 +82,28 @@ def login_page():
 def sign_up_page():
     return render_template("signup.html")
 
-@app.route("/register/", methods=["GET", "POST"])
+@app.route("/register/", methods=["POST"])
 def register():
     email = request.form.get("email")
     password = request.form.get("password")
-    if request.method == "POST":
-        new_user = User(email=email, password=password)
-        db.session.add(new_user)
-        db.session.commit()
-        session["logged_in"] = True 
-        return render_template("todo.html") and redirect(url_for("todo_page"))
+    new_user = User(email=email, password=password)
+    db.session.add(new_user)
+    db.session.commit()
+    session["logged_in"] = True 
+    return render_template("todo.html") and redirect(url_for("todo_page"))
 
-@app.route("/login/", methods = ["GET", "POST"])
+@app.route("/login/", methods = ["POST"])
 def login():
     email = request.form.get("email")
     password = request.form.get("password")
-    if request.method == "POST":
-        user = User.query.filter_by(email=email).first()
-        if user:
-            if (user.password, password):
-                session["logged_in"] = True 
-                return render_template("todo.html") and redirect(url_for("todo_page"))
-            else:
-                flash("Username or Password Incorrect")
-                return redirect(url_for("login_page"))
+    user = User.query.filter_by(email=email).first()
+    if user:
+        if (user.password, password):
+            session["logged_in"] = True 
+            return render_template("todo.html") and redirect(url_for("todo_page"))
+        else:
+            flash("Username or Password Incorrect")
+            return redirect(url_for("login_page"))
     return render_template("todo.html")
 
 @app.route("/logout/")
