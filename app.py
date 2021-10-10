@@ -98,11 +98,11 @@ def login():
     password = request.form.get("password")
     user = User.query.filter_by(email=email).first()
     if user:
-        if (user.password, password):
+        if user.password == password:
             session["logged_in"] = True 
             return render_template("todo.html") and redirect(url_for("todo_page"))
         else:
-            flash("Username or Password Incorrect")
+            flash("Username or Password Incorrect", 'Danger')
             return redirect(url_for("login_page"))
     return render_template("todo.html")
 
